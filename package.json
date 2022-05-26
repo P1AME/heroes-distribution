@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -12,6 +13,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "ngrok": "ngrok http 3030",
+    "json": "json-server --watch public/data.json --port 3030 --static public",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
