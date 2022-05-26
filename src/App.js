@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import HeroesList from './components/HeroesList';
+import { useHeroes } from './hooks/useHeroes';
+import HeroView from './components/HeroView';
+import Title from './components/Title';
+import { Context } from './store/store';
 
 function App() {
+
+  const { state, dispatch, isReady } = useHeroes();
+
+  const [heroActif, setHero] = useState(null)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={{ state, dispatch }}>
+      <div className="App">
+        <Title title={'Heroes list'} />
+        {state.view === 'list' ? (isReady ? <HeroesList onPress={setHero} title={'Mes heros'} /> : null) : <HeroView hero={heroActif} />}
+      </div>
+    </Context.Provider>
   );
 }
 
