@@ -1,4 +1,4 @@
-const ngrokUrl = "http://98c8-194-199-64-11.ngrok.io"
+const ngrokUrl = "https://0b7d-91-163-45-80.ngrok.io"
 
 const listStats = [
     "force",
@@ -21,33 +21,33 @@ export function getAllHeroesApi() {
         .then((response) => response.json())
 }
 
-export function changePointToPers(character, stat, point){
-    let url = ngrokUrl + "/characters/"+character.id;
+export function changePointToHero(character, stat, point) {
+    let url = ngrokUrl + "/characters/" + character.id;
 
     return fetch(url, {
-        method : "PATCH",
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
         },
-        body: '{'+ stat+"" +' : ' + point + '}',
+        body: '{' + stat + "" + ' : ' + point + '}',
     })
         .then((response) => response.json())
 }
 
-export function resetAllPoints(character){
-    for(let aStat in listStats){
+export function resetAllPoints(character) {
+    for (let aStat in listStats) {
         changePointToHero(character, aStat, 0);
     }
 }
 
-export function saveChanges(character){
-    for(let aStat in listStats){
+export function saveChanges(character) {
+    for (let aStat in listStats) {
         changePointToHero(character, aStat, character.stats[aStat]);
     }
 }
 
 export function getImageApi(route) {
-    return ngrokUrl + route;
+    return ngrokUrl + '/assets/' + route + '.png';
 
 }

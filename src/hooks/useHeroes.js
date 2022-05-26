@@ -1,7 +1,7 @@
-import React, {useEffect, useReducer, useState} from "react";
-import {defaultState, reducer} from "../reducer";
-import {getAllHeroesApi} from "../services/heroesApi";
-import {setChar} from "../actions";
+import React, { useEffect, useReducer, useState } from "react";
+import { defaultState, reducer } from "../reducer";
+import { getAllHeroesApi } from "../services/heroesApi";
+import { setChar } from "../actions";
 
 export function useHeroes() {
     const [state, dispatch] = useReducer(reducer, defaultState);
@@ -9,13 +9,13 @@ export function useHeroes() {
 
     useEffect(() => {
         const promises = []
-        promises[0] = getAllHeroesApi()
-            .then((data) =>{
+        promises[0] = getAllHeroesApi() 
+            .then((data) => {
                 dispatch(setChar(data))
             })
         Promise.all(promises).then(() => setIsReady(true))
     }, []);
 
-    return {state, dispatch, isReady};
+    return { state, dispatch, isReady };
 
 }
