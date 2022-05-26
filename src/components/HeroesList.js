@@ -10,7 +10,8 @@ function HeroesList({ title, onPress }) {
     let listItems = [];
 
     for (let aId in state.characters) {
-        listItems.push(<HeroItem key={state.characters[id]} onPress={onPress} char={state.characters[id]} />)
+        
+        listItems.push(<HeroItem key={aId} onPress={onPress} char={state.characters[aId]} heroClass={state.characters[aId].classe} />)
     }
 
     return (
@@ -18,7 +19,7 @@ function HeroesList({ title, onPress }) {
             <h1>
                 {title}
             </h1>
-            <div style={"overflow-y: scroll; height:400px;"}>
+            <div style={{alignItems: 'stretch', display: 'flex', flexWrap: 'wrap'}}>
                 {listItems}
             </div>
         </div>
