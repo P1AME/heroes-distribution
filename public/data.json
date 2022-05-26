@@ -2,9 +2,8 @@
   "characters":[
     {
       "id": 1,
-      "nom": "Rincevent",
+      "nom": "React",
       "classe": "Mage",
-      "photo": 66,
       "stats": {
         "restant": 20,
         "force": 0,
@@ -15,9 +14,8 @@
     },
     {
       "id": 2,
-      "nom": "Deuxfleurs",
+      "nom": "Angular",
       "classe": "Voleur",
-      "photo": 6,
       "stats": {
         "restant": 20,
         "force": 0,
@@ -28,9 +26,8 @@
     },
     {
       "id": 3,
-      "nom": "Suzanne",
+      "nom": "Symfony",
       "classe": "Archer",
-      "photo": 43,
       "stats": {
         "restant": 20,
         "force": 0,
@@ -41,9 +38,8 @@
     },
     {
       "id": 4,
-      "nom": "Cohen le Barbare",
+      "nom": "Laravel",
       "classe": "Guerrier",
-      "photo": 17,
       "stats": {
         "restant": 20,
         "force": 0,
@@ -54,9 +50,8 @@
     },
     {
       "id": 5,
-      "nom": "Ridiculle",
+      "nom": "Ruby",
       "classe": "Mage",
-      "photo": 65,
       "stats": {
         "restant": 20,
         "force": 0,
@@ -67,9 +62,8 @@
     },
     {
       "id": 6,
-      "nom": "Ysabell",
+      "nom": "Go",
       "classe": "Voleur",
-      "photo": 22,
       "stats": {
         "restant": 20,
         "force": 0,
@@ -80,9 +74,8 @@
     },
     {
       "id": 7,
-      "nom": "Hrun",
+      "nom": "Java",
       "classe": "Guerrier",
-      "photo": 11,
       "stats": {
         "restant": 20,
         "force": 0,
@@ -93,9 +86,20 @@
     },
     {
       "id": 8,
-      "nom": "Albert",
+      "nom": "Vue",
       "classe": "Mage",
-      "photo": 17,
+      "stats": {
+        "restant": 20,
+        "force": 0,
+        "intelligence": 0,
+        "agilite": 0,
+        "endurance": 0
+      }
+    },
+    {
+      "id": 9,
+      "nom": "HTML",
+      "classe": "Voleur",
       "stats": {
         "restant": 20,
         "force": 0,
