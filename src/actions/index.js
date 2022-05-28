@@ -3,6 +3,8 @@ export const actions = {
     RESET_POINTS: "RESET_POINTS",
     SAVE_CHANGES: "SAVE_CHANGES",
     SET_CHAR: "SET_CHAR",
+    STAT_MINUS: "STAT_MINUS",
+    STAT_PLUS: "STAT_PLUS",
 }
 
 export function setChar(char) {
@@ -31,8 +33,21 @@ export function saveChanges(character) {
         character,
     }
 }
-export function changeView() {
+
+export function statsMinus(character, stat, number){
     return {
-        type: actions.CHANGE_VIEW,
+        type: actions.STAT_MINUS,
+        character,
+        stat, 
+        number,
+    }
+}
+
+export function statsPlus(character, stat, number){
+    return {
+        type: actions.STAT_PLUS,
+        character,
+        stat, 
+        number,
     }
 }

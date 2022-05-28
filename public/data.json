@@ -1,5 +1,5 @@
 {
-  "characters":[
+  "characters": [
     {
       "id": 1,
       "nom": "React",
@@ -17,11 +17,7 @@
       "nom": "Angular",
       "classe": "Voleur",
       "stats": {
-        "restant": 20,
-        "force": 0,
-        "intelligence": 0,
-        "agilite": 0,
-        "endurance": 0
+        "force": 3
       }
     },
     {
@@ -29,11 +25,7 @@
       "nom": "Symfony",
       "classe": "Archer",
       "stats": {
-        "restant": 20,
-        "force": 0,
-        "intelligence": 0,
-        "agilite": 0,
-        "endurance": 0
+        "force": 1
       }
     },
     {
@@ -89,11 +81,7 @@
       "nom": "Vue",
       "classe": "Mage",
       "stats": {
-        "restant": 20,
-        "force": 0,
-        "intelligence": 0,
-        "agilite": 0,
-        "endurance": 0
+        "intelligence": 3
       }
     },
     {

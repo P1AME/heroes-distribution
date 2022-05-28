@@ -1,4 +1,4 @@
-const ngrokUrl = "https://0b7d-91-163-45-80.ngrok.io"
+const ngrokUrl = "https://caa4-46-193-17-6.ngrok.io"
 
 const listStats = [
     "force",
@@ -14,6 +14,8 @@ export function getAllHeroesApi() {
         //headers pour ne pas récuperer un réponse 304 Not Modified de la part du serveur
         headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods' : 'GET, POST, PUT, DELETE, OPTIONS',
             Pragma: 'no-cache',
             Expires: 0,
         }
@@ -21,31 +23,49 @@ export function getAllHeroesApi() {
         .then((response) => response.json())
 }
 
-export function changePointToHero(character, stat, point) {
+export function addPointToHero(character, stat, number) {
     let url = ngrokUrl + "/characters/" + character.id;
 
-    return fetch(url, {
+    const statName = stat == 'f' ? 'force' : (stat == 'i' ? 'intelligence' : (stat == 'a' ? 'agilite' : (stat == 'e' ? 'endurance' : null)));
+
+    if(statName != null){
+        return fetch(url, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods' : 'GET, POST, PUT, DELETE, OPTIONS'
         },
-        body: '{' + stat + "" + ' : ' + point + '}',
+        body: '{"stats" : {"' + statName + '" : ' + (character.stats[statName] + number) + '}}',
     })
-        .then((response) => response.json())
+        .then((response) => response.json())}
 }
 
-export function resetAllPoints(character) {
+export function remPointToHero(character, stat, number) {
+    let url = ngrokUrl + "/characters/" + character.id;
+
+    const statName = stat == 'f' ? 'force' : (stat == 'i' ? 'intelligence' : (stat == 'a' ? 'agilite' : (stat == 'e' ? 'endurance' : null)));
+
+    if(statName != null){
+        return fetch(url, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods' : 'GET, POST, PUT, DELETE, OPTIONS'
+        },
+        body: '{"stats" : {"' + statName + '" : ' + (character.stats[statName] - number) + '}}',
+    })
+        .then((response) => response.json())}
+}
+
+/*export function resetAllPoints(character) {
     for (let aStat in listStats) {
         changePointToHero(character, aStat, 0);
     }
-}
-
-export function saveChanges(character) {
-    for (let aStat in listStats) {
-        changePointToHero(character, aStat, character.stats[aStat]);
-    }
-}
+}*/
 
 export function getImageApi(route) {
     return ngrokUrl + '/assets/' + route + '.png';
